@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd myappui && npm start",
-    "server": "cd myappserver && npm start",
+    "client": "cd myappui && npm install && npm start",
+    "server": "cd myappserver && npm install && npm start",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
