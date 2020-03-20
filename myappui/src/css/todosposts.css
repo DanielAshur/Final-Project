@@ -1,0 +1,23 @@
+.todosPostsCtr {
+    width: 400px;
+    margin-top: 50px;
+    margin: 45px auto;
+}
+
+.sticky-top-posts {
+    position: sticky;
+    top: 200px;
+    z-index: 1020;
+}
+
+.postsCtr {
+    margin-top: 30px;
+}
+
+.addTodoBtn, .addPostBtn {
+    padding-left: 7px;
+}
+
+.todoTitle, .postTitle {
+    padding-left: 0;
+}

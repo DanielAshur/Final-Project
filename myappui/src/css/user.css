@@ -1,0 +1,54 @@
+.hide {
+    display: none;
+  }
+  .show {
+    display: flex;
+    margin-top: 15px;
+  }
+  
+
+.btnCtr {
+    padding: 5px 10px;
+    margin: 0 auto;
+}
+.userCtr {
+    margin-bottom:15px;
+    border: 2px solid black;
+    min-width: 350px;
+}
+.userCtr:last-child {
+    margin-bottom:35px;
+}
+
+.bgOn {
+  background: orange;
+}
+.bgOff {
+  background: none;
+}
+
+.redBorder {
+  border: 2px solid red;
+}
+.greenBorder {
+  border: 2px solid green;
+}
+
+ .orange {
+  background: orange;
+}
+
+.boxId {
+  cursor: pointer;
+}
+/* // Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */

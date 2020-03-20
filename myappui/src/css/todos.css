@@ -1,0 +1,26 @@
+.todosCtr {
+    padding: 10px;
+}
+
+.todosRowCtr {
+    border:1px solid black;
+}
+
+.todoBtn {
+    padding: 5px 10px;
+}
+
+.todosRowCtr div:nth-child(2) {
+    line-height: 35px;
+}
+
+.hideTodo {
+    display: none;
+  }
+  .showTodo {
+    display: flex;
+  }
+
+  .todoCtr {
+      min-width: 370px;
+  }

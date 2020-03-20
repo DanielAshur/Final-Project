@@ -1,0 +1,24 @@
+.mainAppCtr {
+    max-width: 450px;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin-top:20px;
+    height: fit-content;
+}
+
+.col-lg-4 {
+    margin:10px auto;
+}
+
+.usersDisplayCtr {
+    margin:25px auto;
+    padding: 10px;
+}
+
+.searchAddCtr {
+    margin: 0 auto;
+    top: 30px;
+    position: relative;
+    left: 15px;
+}
+

@@ -1,0 +1,18 @@
+.App {
+  max-width: 100%;
+}
+
+.MainPage {
+  display: flex;
+  width: 50%;
+}
+
+.input-group-text {
+  background: none;
+  border: none;
+  font-size: 17px;
+}
+
+/* .btn {
+  margin-left: 20px;
+} */
