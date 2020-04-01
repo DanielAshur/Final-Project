@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import '../css/todos.css'
+import utils from '../utils'
 
 function Todos(props) {
     const title = props.title
@@ -13,11 +13,11 @@ function Todos(props) {
     const [markCompletedBtn, setMark] = useState('showTodo')
 
     useEffect(() => {
-        
+
         //Update todo
         async function updateTodo(id) {
             let obj = { ...todo, completed: true };
-            let resp = await axios.put(`http://localhost:8000/api/todos/${id}`, obj)
+            let resp = await utils.updateTodo(id, obj)
             props.dispatch({ type: 'UPDATE_TODO', payload: resp.data })
         }
         if (todoId !== 0) {
@@ -32,17 +32,17 @@ function Todos(props) {
 
     return (
         <Container className="todosCtr">
-                <Row className="todosRowCtr">
-                    <Col sm={12}>
-                        Title : {title}
-                    </Col>
-                    <Col sm={6}>
-                        Completed : {completed.toString()}
-                    </Col>
-                    <Col className="todoBtn" sm={6}>
-                        <Button className={markCompletedBtn} onClick={() => { setTodoId(props.id); setCompleted(true) }} size="sm">Mark Completed</Button>
-                    </Col>
-                </Row>
+            <Row className="todosRowCtr">
+                <Col sm={12}>
+                    Title : {title}
+                </Col>
+                <Col sm={6}>
+                    Completed : {completed.toString()}
+                </Col>
+                <Col className="todoBtn" sm={6}>
+                    <Button className={markCompletedBtn} onClick={() => { setTodoId(props.id); setCompleted(true) }} size="sm">Mark Completed</Button>
+                </Col>
+            </Row>
         </Container>
     )
 }

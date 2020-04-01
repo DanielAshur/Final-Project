@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux'
 import '../css/adduser.css'
 import { Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import $ from 'jquery'
+import utils from '../utils'
+
 
 function AddUser(props) {
     const [user, setUser] = useState({ name: "", email: "", address: { street: "", city: "", zipcode: "" } });
@@ -17,7 +18,7 @@ function AddUser(props) {
     useEffect(() => {
         //Add new user
         async function addNewUser() {
-            let resp = await axios.post("http://localhost:8000/api/persons", user)
+            let resp = await utils.addNewUser(user)
             props.dispatch({ type: 'ADD', payload: resp.data })
         }
         if (addNew === true) {

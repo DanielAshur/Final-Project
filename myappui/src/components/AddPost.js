@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux'
 import '../css/addtodo.css'
 import { Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import utils from '../utils';
 
 function AddPost(props) {
     const [post, setNewPost] = useState({ userId: props.match.params.id, title: "", body: "" })
@@ -12,7 +12,7 @@ function AddPost(props) {
     useEffect(() => {
         //Add new post 
         async function addNewPost() {
-            let resp = await axios.post("http://localhost:8000/api/posts/", post)
+            let resp = await utils.addNewPost(post)
             props.dispatch({ type: 'ADD_POST', payload: resp.data })
         }
 

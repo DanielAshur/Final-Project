@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux'
 import '../css/addtodo.css'
 import { Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import utils from '../utils'
 
 function AddTodo(props) {
     const [todo, setNewTodo] = useState({ userId: props.match.params.id, title: "", completed: false })
@@ -11,7 +11,7 @@ function AddTodo(props) {
     useEffect(() => {
         //Add new todo
         async function addNewTodo() {
-            let resp = await axios.post("http://localhost:8000/api/todos/", todo)
+            let resp = await utils.addNewTodo(todo)
             props.dispatch({ type: 'ADD_TODO', payload: resp.data })
         }
 
@@ -22,6 +22,7 @@ function AddTodo(props) {
         }
 
     }, [addNew])
+
     //Navigate back to todos-posts with user id
     function cancle() {
         props.history.push(`/todos-posts/${todo.userId}`)

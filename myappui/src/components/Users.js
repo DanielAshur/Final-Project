@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import User from './User';
 import { withRouter } from 'react-router-dom';
 import { Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import '../css/users.css'
+import utils from '../utils'
 
 function Users(props) {
     const [search, setSearch] = useState("")
@@ -15,22 +15,22 @@ function Users(props) {
 
     useEffect(() => {
         //Get all users
-        async function getUsers() {
-            let resp = await axios.get("http://localhost:8000/api/persons");
+        async function getAllUsers() {
+            let resp = await utils.getUsers()
             props.dispatch({ type: 'GET_ALL_USERS', payload: resp.data })
         }
         //Get all todos
         async function getAllTodos() {
-            let resp = await axios.get("http://localhost:8000/api/todos")
+            let resp = await utils.getTodos()
             props.dispatch({ type: 'GET_ALL_TODOS', payload: resp.data })
         }
         //Get all posts
         async function getAllPosts() {
-            let resp = await axios.get("http://localhost:8000/api/posts")
+            let resp = await utils.getPosts()
             props.dispatch({ type: 'GET_ALL_POSTS', payload: resp.data })
         }
 
-        getUsers()
+        getAllUsers();
         getAllTodos();
         getAllPosts();
 

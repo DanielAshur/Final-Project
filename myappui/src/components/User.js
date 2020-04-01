@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
-import axios from 'axios'
 import '../css/user.css'
 import { withRouter } from 'react-router-dom';
 import { Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import $ from 'jquery';
+import utils from '../utils'
+
 
 function User(props) {
     const [otherData, setData] = useState('hide')
@@ -30,7 +31,7 @@ function User(props) {
         //Update user
         async function updateUser(id) {
             let obj = { name: name, email: email, address: { street: street, city: city, zipcode: zipcode } };
-            let resp = await axios.put(`http://localhost:8000/api/persons/${id}`, obj)
+            let resp = await utils.updateUser(id,obj)
             props.dispatch({ type: 'UPDATE', payload: resp.data })
         }
         if (userId !== 0) {
@@ -38,17 +39,17 @@ function User(props) {
         }
         //Delete user
         async function deleteUser(id) {
-            let userResp = await axios.delete(`http://localhost:8000/api/persons/${id}`)
+            let userResp = await utils.deleteUser(id)
             props.dispatch({ type: 'DELETE', payload: userResp.data })
         }
         //Delete todo
         async function deleteTodo(id) {
-            let todoResp = await axios.delete(`http://localhost:8000/api/todos/${id}`)
+            let todoResp = await utils.deleteTodo(id)
             props.dispatch({ type: 'DELETE_TODO', payload: todoResp.data })
         }
         //Delete post
         async function deletePost(id) {
-            let postResp = await axios.delete(`http://localhost:8000/api/posts/${id}`)
+            let postResp = await utils.deletePost(id)
             props.dispatch({ type: 'DELETE_POST', payload: postResp.data })
         }
 
